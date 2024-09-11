@@ -1,5 +1,6 @@
 import React from 'react';
 import MapList from './components/MapList';
+import Footer from './components/Footer';
 import './styles/styles.css';
 
 function App() {
@@ -19,10 +20,10 @@ function App() {
   return (
     <div>
       <Header />
-
       <div className="App">
         <MapList />
       </div>
+      <Footer />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import BrawlerList from './BrawlerList';
 const MapList = () => {
     const [maps, setMaps] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [sortByWinRate, setSortByWinRate] = useState(false); // Novo estado para controle de ordenação
 
     useEffect(() => {
         const fetchMaps = async () => {
@@ -16,6 +17,10 @@ const MapList = () => {
 
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
+    };
+
+    const handleSortChange = () => {
+        setSortByWinRate(!sortByWinRate); // Inverte o estado de ordenação
     };
 
     const activeMaps = maps.filter(map => !map.disabled);
@@ -34,6 +39,15 @@ const MapList = () => {
                 onChange={handleSearch}
             />
 
+            <label>
+                <input
+                    type="checkbox"
+                    checked={sortByWinRate}
+                    onChange={handleSortChange}
+                />
+                Ordenar por Taxa de Vitória
+            </label>
+
             <div className="map-container">
                 {filteredMaps.map(map => (
                     <div className="map-card" key={map.id}>
@@ -44,7 +58,7 @@ const MapList = () => {
                             </h3>
                             <p style={{ fontSize: '12px' }}>Atualizado em: {new Date(parseInt(map.dataUpdated) * 1000).toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</p>
                         </div>
-                        <BrawlerList mapId={map.id} />
+                        <BrawlerList mapId={map.id} sortByWinRate={sortByWinRate} /> {/* Passa o estado de ordenação para BrawlerList */}
                     </div>
                 ))}
             </div>
