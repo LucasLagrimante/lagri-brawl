@@ -1,0 +1,46 @@
+.custom-button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    /* Cor de fundo */
+    color: white;
+    /* Cor do texto */
+    border: none;
+    /* Sem borda */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    cursor: pointer;
+    /* Cursor de ponteiro ao passar o mouse */
+    font-size: 16px;
+    /* Tamanho da fonte */
+    transition: background-color 0.3s;
+    /* Efeito de transição */
+    display: flex;
+    /* Flexbox para alinhar o ícone e o texto */
+    align-items: center;
+    /* Alinhamento vertical do conteúdo */
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+    /* Cor de fundo ao passar o mouse */
+}
+
+.custom-button:focus {
+    outline: none;
+    /* Remove o contorno ao focar */
+}
+
+.button-container {
+    display: flex;
+    /* Usando flexbox para centralizar */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    margin: 10px 0;
+    /* Margem superior e inferior */
+}
+
+.material-icons {
+    margin-right: 5px;
+    /* Espaçamento entre o ícone e o texto */
+}

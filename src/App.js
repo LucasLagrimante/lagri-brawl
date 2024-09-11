@@ -11,7 +11,7 @@ function App() {
           Lagri-Brawl
         </h1>
         <h2 style={{ fontSize: '1.5em', color: '#555' }}>
-          Encontre os melhores personagens para dominar cada mapa e eleve seu jogo a um novo nível!
+          Explore a combinação ideal de brawlers e mapas para transformar sua jogabilidade e alcançar novas vitórias!
         </h2>
       </header>
     );

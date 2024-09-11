@@ -12,9 +12,12 @@ h3 {
 }
 
 .search-input {
-    margin-left: 10%;
-    width: 70%;
-    /* Largura total */
+    display: block;
+    /* Garante que a barra de busca seja um bloco */
+    margin: 10px auto;
+    /* Centraliza horizontalmente */
+    width: 50%;
+    /* Ajuste a largura conforme necessário (50% como exemplo) */
     padding: 10px 20px;
     /* Espaçamento interno */
     border: 2px solid #3498db;
@@ -116,4 +119,33 @@ body {
     /* Tamanho da fonte dos status */
     color: #fff;
     /* Cor da fonte dos status */
+}
+
+.custom-button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    /* Cor de fundo */
+    color: white;
+    /* Cor do texto */
+    border: none;
+    /* Sem borda */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    cursor: pointer;
+    /* Cursor de ponteiro ao passar o mouse */
+    font-size: 16px;
+    /* Tamanho da fonte */
+    transition: background-color 0.3s;
+    /* Efeito de transição */
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+    /* Cor de fundo ao passar o mouse */
+}
+
+.custom-button:focus {
+    outline: none;
+    /* Remove o contorno ao focar */
 }
