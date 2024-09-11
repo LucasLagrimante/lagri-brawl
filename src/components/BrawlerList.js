@@ -15,7 +15,7 @@ const BrawlerList = ({ mapId, sortByWinRate }) => {
                 .filter((brawler, index, self) =>
                     index === self.findIndex((b) => b.brawler === brawler.brawler) // Remove duplicados
                 )
-                .sort((a, b) => sortByWinRate ? b.winRate - a.winRate : b.useRate - a.useRate) // Ordena pela taxa de uso ou taxa de vitória
+                .sort((a, b) => !sortByWinRate ? b.winRate - a.winRate : b.useRate - a.useRate) // Ordena pela taxa de uso ou taxa de vitória
                 .slice(0, 10); // Seleciona os 10 mais usados
 
             // Mapeando IDs dos brawlers com nome e imagem

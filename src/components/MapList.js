@@ -40,8 +40,8 @@ const MapList = () => {
             />
 
             <div className="button-container"> {/* Contêiner para o botão */}
-                <Button onClick={toggleSort} icon={sortByWinRate ? 'show_chart' : 'emoji_events'}>
-                    {sortByWinRate ? 'Ordenar por Uso' : 'Ordenar por Taxa de Vitória'}
+                <Button onClick={toggleSort} icon={!sortByWinRate ? 'show_chart' : 'emoji_events'}>
+                    {!sortByWinRate ? 'Ordenar por Uso' : 'Ordenar por Taxa de Vitória'}
                 </Button>
             </div>
 
