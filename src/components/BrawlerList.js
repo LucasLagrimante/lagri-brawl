@@ -44,11 +44,15 @@ const BrawlerList = ({ mapId }) => {
     }, [mapId]);
 
     return (
-        <ul>
-            {brawlers.map(brawler => (
-                < li key={parseInt(brawler.id) + Date.now()}>
+        <ul className="brawler-list">
+            {brawlers.map((brawler, index) => (
+                <li key={parseInt(brawler.id) + Date.now()} className="brawler-item">
                     <img src={brawler.imageUrl} width={50} alt={brawler.name} />
-                    <span style={{ color: brawler.color }}>{brawler.name}</span> - Usado: {brawler.usage}% das vezes WinRate: {brawler.wins}%
+                    <span style={{ color: brawler.color, fontWeight: 'bold', marginLeft: 10 }}><span style={{ fontSize: '13px' }}>#{index + 1}</span> {brawler.name}</span>
+                    <div className="brawler-status">
+                        <span>Usage: {brawler.usage}%</span><br />
+                        <span>WinRate: {brawler.wins}%</span>
+                    </div>
                 </li>
             ))
             }
