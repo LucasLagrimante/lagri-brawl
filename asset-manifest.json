@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/lagri-brawl/static/css/main.dd0a8c2e.css",
-    "main.js": "/lagri-brawl/static/js/main.f73cd160.js",
+    "main.css": "/lagri-brawl/static/css/main.85440157.css",
+    "main.js": "/lagri-brawl/static/js/main.dbd6cbb0.js",
     "static/js/453.37113f02.chunk.js": "/lagri-brawl/static/js/453.37113f02.chunk.js",
     "index.html": "/lagri-brawl/index.html",
-    "main.dd0a8c2e.css.map": "/lagri-brawl/static/css/main.dd0a8c2e.css.map",
-    "main.f73cd160.js.map": "/lagri-brawl/static/js/main.f73cd160.js.map",
+    "main.85440157.css.map": "/lagri-brawl/static/css/main.85440157.css.map",
+    "main.dbd6cbb0.js.map": "/lagri-brawl/static/js/main.dbd6cbb0.js.map",
     "453.37113f02.chunk.js.map": "/lagri-brawl/static/js/453.37113f02.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd0a8c2e.css",
-    "static/js/main.f73cd160.js"
+    "static/css/main.85440157.css",
+    "static/js/main.dbd6cbb0.js"
   ]
 }
