@@ -11,6 +11,14 @@ const BrawlerList = ({ mapId, sortByWinRate }) => {
 
             // Extraindo os 20 brawlers mais jogados
             const mostUsedBrawlers = mapDetails.stats
+                .filter(brawler => {
+                    // Aplica o filtro de useRate somente se o modo de jogo for diferente de Solo Showdown, Duo Showdown ou Trio Showdown
+                    const gameMode = mapDetails.gameMode.name;
+                    if (gameMode !== 'Solo Showdown' && gameMode !== 'Duo Showdown' && gameMode !== 'Trio Showdown') {
+                        return brawler.useRate >= 2.1;
+                    }
+                    return true; // Não aplica o filtro para esses modos de jogo
+                })
                 .filter(brawler => brawler.brawler && brawler.brawler !== 0) // Filtra brawlers com brawler vazio ou igual a zero
                 .filter((brawler, index, self) =>
                     index === self.findIndex((b) => b.brawler === brawler.brawler) // Remove duplicados
