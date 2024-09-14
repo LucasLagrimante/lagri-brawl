@@ -49,7 +49,7 @@ const MapList = () => {
                 {filteredMaps.map(map => (
                     <div className="map-card" key={map.id}>
                         <div className="map-info">
-                            <div style={{ width: 200, height: 304, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#2a2a2a' }}>
+                            <div style={{ width: 200, height: 304, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#1e1e1e' }}>
                                 <img src={map.imageUrl} style={{ maxWidth: '100%', maxHeight: '100%' }} alt={map.name} />
                             </div>
                             <h3>{map.name} (<span style={{ fontSize: '13px' }}>{map.gameMode.name}</span>
