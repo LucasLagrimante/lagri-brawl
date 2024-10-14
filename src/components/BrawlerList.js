@@ -10,7 +10,7 @@ const BrawlerList = ({ mapName, sortByWinRate }) => {
             const brawlersData = await getAllBrawlers();
 
             // Extraindo os 10 brawlers mais jogados
-            const mostUsedBrawlers = mapDetails.stats
+            const mostUsedBrawlers = mapDetails
                 .sort((a, b) => !sortByWinRate ? b.winRate - a.winRate : b.useRate - a.useRate) // Ordena pela taxa de uso ou taxa de vitória
                 .slice(0, 10); // Seleciona os 10 mais usados
 
@@ -27,7 +27,8 @@ const BrawlerList = ({ mapName, sortByWinRate }) => {
                 return {
                     ...brawler,
                     usage: brawlerStat.useRate,
-                    wins: brawlerStat.winRate
+                    wins: brawlerStat.winRate,
+                    star: brawlerStat.starRate
                 };
             });
 
@@ -47,7 +48,8 @@ const BrawlerList = ({ mapName, sortByWinRate }) => {
                     </span>
                     <div className="brawler-status">
                         <span>Usage: {brawler.usage}%</span><br />
-                        <span>WinRate: {brawler.wins}%</span>
+                        <span>WinRate: {brawler.wins}%</span><br />
+                        <span>StarRate: {brawler.star}%</span>
                     </div>
                 </li>
             ))}
