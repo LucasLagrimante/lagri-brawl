@@ -15,9 +15,11 @@ const BrawlerList = ({ mapName, sortByStarRate }) => {
 
                     const brawlersData = await getAllBrawlers();
                     const detailedBrawlers = mostUsedBrawlers.map(brawlerStat => {
-                        const brawler = brawlersData.find(b => b.id === brawlerStat.brawler);
+                        const brawler = brawlersData.find(b => b.id == brawlerStat.brawler);
+
                         return {
                             ...brawler,
+                            wins: brawlerStat.winRate,
                             usage: brawlerStat.useRate,
                             star: brawlerStat.starRate,
                             color: brawler?.rarity?.color || ''
@@ -45,7 +47,7 @@ const BrawlerList = ({ mapName, sortByStarRate }) => {
                         <span style={{ fontSize: '13px' }}>#{index + 1}</span> {brawler.name}
                     </span>
                     <div className="brawler-status">
-                        <span>Usage: {brawler.usage}#</span><br />
+                        <span>WinRate: {brawler.wins}%</span><br />
                         <span>StarRate: {brawler.star}%</span>
                     </div>
                 </li>
