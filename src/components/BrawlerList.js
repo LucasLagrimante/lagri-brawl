@@ -19,7 +19,6 @@ const BrawlerList = ({ mapName, sortByStarRate }) => {
                         return {
                             ...brawler,
                             usage: brawlerStat.useRate,
-                            wins: brawlerStat.starRate,
                             star: brawlerStat.starRate,
                             color: brawler?.rarity?.color || ''
                         };
