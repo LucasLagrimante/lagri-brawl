@@ -55,7 +55,6 @@ const MapList = () => {
                             <h3>{map.name} (<span style={{ fontSize: '13px' }}>{map.gameMode.name}</span>
                                 <img src={map.gameMode.imageUrl} width={20} alt={map.name} />)
                             </h3>
-                            <span style={{ fontSize: '10px' }}>Atualizado em: {new Date(parseInt(map.dataUpdated) * 1000).toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</span>
                         </div>
                         {filteredMaps.length === 1 && (
                             <BrawlerList mapName={map.hash} sortByStarRate={sortByStarRate} />
