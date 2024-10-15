@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllMaps } from '../services/brawlApi';
 import BrawlerList from './BrawlerList';
-import Button from './Button'; // Importe o novo componente de botão
+import Button from './Button';
 
 const MapList = () => {
     const [maps, setMaps] = useState([]);
@@ -39,7 +39,7 @@ const MapList = () => {
                 onChange={handleSearch}
             />
 
-            <div className="button-container"> {/* Contêiner para o botão */}
+            <div className="button-container">
                 <Button onClick={toggleSort} icon={!sortByStarRate ? 'show_chart' : 'star'}>
                     {!sortByStarRate ? 'Ordenar por Uso' : 'Ordenar por Taxa de Estrela'}
                 </Button>
@@ -57,11 +57,13 @@ const MapList = () => {
                             </h3>
                             <span style={{ fontSize: '10px' }}>Atualizado em: {new Date(parseInt(map.dataUpdated) * 1000).toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</span>
                         </div>
-                        <BrawlerList mapName={map.hash} sortByStarRate={sortByStarRate} />
+                        {filteredMaps.length === 1 && (
+                            <BrawlerList mapName={map.hash} sortByStarRate={sortByStarRate} />
+                        )}
                     </div>
                 ))}
             </div>
-        </div >
+        </div>
     );
 };
 
