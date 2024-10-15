@@ -15,7 +15,7 @@ const BrawlerList = ({ mapName, sortByStarRate }) => {
 
                     const brawlersData = await getAllBrawlers();
                     const detailedBrawlers = mostUsedBrawlers.map(brawlerStat => {
-                        const brawler = brawlersData.find(b => b.id == brawlerStat.brawler);
+                        const brawler = brawlersData.find(b => b.id === brawlerStat.brawler);
 
                         return {
                             ...brawler,
