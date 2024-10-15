@@ -6,36 +6,35 @@ const BrawlerList = ({ mapName, sortByStarRate }) => {
 
     useEffect(() => {
         const fetchBrawlers = async () => {
-            const mapDetails = await getMapDetails(mapName);
-            const brawlersData = await getAllBrawlers();
+            try {
+                const mapDetails = await getMapDetails(mapName);
+                if (mapDetails && mapDetails.data) {
+                    const mostUsedBrawlers = mapDetails.data
+                        .sort((a, b) => !sortByStarRate ? b.starRate - a.starRate : b.useRate - a.useRate)
+                        .slice(0, 10);
 
-            // Extraindo os 10 brawlers mais jogados
-            const mostUsedBrawlers = mapDetails
-                .sort((a, b) => !sortByStarRate ? b.starRate - a.starRate : b.useRate - a.useRate) // Ordena pela taxa de uso ou taxa de estrelas
-                .slice(0, 10); // Seleciona os 10 mais usados
+                    const brawlersData = await getAllBrawlers();
+                    const detailedBrawlers = mostUsedBrawlers.map(brawlerStat => {
+                        const brawler = brawlersData.find(b => b.id === brawlerStat.brawler);
+                        return {
+                            ...brawler,
+                            usage: brawlerStat.useRate,
+                            wins: brawlerStat.starRate,
+                            star: brawlerStat.starRate,
+                            color: brawler?.rarity?.color || ''
+                        };
+                    });
 
-            // Mapeando IDs dos brawlers com nome e imagem
-            const detailedBrawlers = mostUsedBrawlers.map(brawlerStat => {
-                const brawler = brawlersData.find(b => b.id === brawlerStat.brawler);
-
-                if ('rarity' in brawler) {
-                    brawler.color = brawler.rarity.color;
-                } else {
-                    brawler.color = '';
+                    setBrawlers(detailedBrawlers);
                 }
-
-                return {
-                    ...brawler,
-                    usage: brawlerStat.useRate,
-                    wins: brawlerStat.starRate,
-                    star: brawlerStat.starRate
-                };
-            });
-
-            setBrawlers(detailedBrawlers);
+            } catch (error) {
+                console.error('Erro ao buscar detalhes do mapa:', error);
+            }
         };
 
-        fetchBrawlers();
+        if (mapName) {
+            fetchBrawlers();
+        }
     }, [mapName, sortByStarRate]); // Adicionado sortByStarRate como dependência
 
     return (
