@@ -6,7 +6,7 @@ import Button from './Button'; // Importe o novo componente de botão
 const MapList = () => {
     const [maps, setMaps] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [sortByWinRate, setSortByWinRate] = useState(false);
+    const [sortByStarRate, setSortByStarRate] = useState(false);
 
     useEffect(() => {
         const fetchMaps = async () => {
@@ -21,7 +21,7 @@ const MapList = () => {
     };
 
     const toggleSort = () => {
-        setSortByWinRate((prev) => !prev);
+        setSortByStarRate((prev) => !prev);
     };
 
     const activeMaps = maps.filter(map => !map.disabled);
@@ -40,8 +40,8 @@ const MapList = () => {
             />
 
             <div className="button-container"> {/* Contêiner para o botão */}
-                <Button onClick={toggleSort} icon={!sortByWinRate ? 'show_chart' : 'emoji_events'}>
-                    {!sortByWinRate ? 'Ordenar por Uso' : 'Ordenar por Taxa de Vitória'}
+                <Button onClick={toggleSort} icon={!sortByStarRate ? 'show_chart' : 'star'}>
+                    {!sortByStarRate ? 'Ordenar por Uso' : 'Ordenar por Taxa de Estrela'}
                 </Button>
             </div>
 
@@ -57,7 +57,7 @@ const MapList = () => {
                             </h3>
                             <span style={{ fontSize: '10px' }}>Atualizado em: {new Date(parseInt(map.dataUpdated) * 1000).toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</span>
                         </div>
-                        <BrawlerList mapName={map.hash} sortByWinRate={sortByWinRate} />
+                        <BrawlerList mapName={map.hash} sortByStarRate={sortByStarRate} />
                     </div>
                 ))}
             </div>

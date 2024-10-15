@@ -1,3 +1,4 @@
+//npm install depois npm start
 import React from 'react';
 import MapList from './components/MapList';
 import Footer from './components/Footer';

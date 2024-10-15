@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getMapDetails, getAllBrawlers } from '../services/brawlApi';
 
-const BrawlerList = ({ mapName, sortByWinRate }) => {
+const BrawlerList = ({ mapName, sortByStarRate }) => {
     const [brawlers, setBrawlers] = useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const BrawlerList = ({ mapName, sortByWinRate }) => {
 
             // Extraindo os 10 brawlers mais jogados
             const mostUsedBrawlers = mapDetails
-                .sort((a, b) => !sortByWinRate ? b.winRate - a.winRate : b.useRate - a.useRate) // Ordena pela taxa de uso ou taxa de vitória
+                .sort((a, b) => !sortByStarRate ? b.starRate - a.starRate : b.useRate - a.useRate) // Ordena pela taxa de uso ou taxa de estrelas
                 .slice(0, 10); // Seleciona os 10 mais usados
 
             // Mapeando IDs dos brawlers com nome e imagem
@@ -27,7 +27,7 @@ const BrawlerList = ({ mapName, sortByWinRate }) => {
                 return {
                     ...brawler,
                     usage: brawlerStat.useRate,
-                    wins: brawlerStat.winRate,
+                    wins: brawlerStat.starRate,
                     star: brawlerStat.starRate
                 };
             });
@@ -36,7 +36,7 @@ const BrawlerList = ({ mapName, sortByWinRate }) => {
         };
 
         fetchBrawlers();
-    }, [mapName, sortByWinRate]); // Adicionado sortByWinRate como dependência
+    }, [mapName, sortByStarRate]); // Adicionado sortByStarRate como dependência
 
     return (
         <ul className="brawler-list">
@@ -47,8 +47,7 @@ const BrawlerList = ({ mapName, sortByWinRate }) => {
                         <span style={{ fontSize: '13px' }}>#{index + 1}</span> {brawler.name}
                     </span>
                     <div className="brawler-status">
-                        <span>Usage: {brawler.usage}%</span><br />
-                        <span>WinRate: {brawler.wins}%</span><br />
+                        <span>Usage: {brawler.usage}#</span><br />
                         <span>StarRate: {brawler.star}%</span>
                     </div>
                 </li>
