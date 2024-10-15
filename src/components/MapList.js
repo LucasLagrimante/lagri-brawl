@@ -6,7 +6,7 @@ import Button from './Button';
 const MapList = () => {
     const [maps, setMaps] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [sortByStarRate, setSortByStarRate] = useState(false);
+    const [sortByWinRate, setSortByWinRate] = useState(true);
 
     useEffect(() => {
         const fetchMaps = async () => {
@@ -21,7 +21,7 @@ const MapList = () => {
     };
 
     const toggleSort = () => {
-        setSortByStarRate((prev) => !prev);
+        setSortByWinRate((prev) => !prev);
     };
 
     const activeMaps = maps.filter(map => !map.disabled);
@@ -40,8 +40,8 @@ const MapList = () => {
             />
 
             <div className="button-container">
-                <Button onClick={toggleSort} icon={!sortByStarRate ? 'show_chart' : 'star'}>
-                    {!sortByStarRate ? 'Ordenar por Uso' : 'Ordenar por Taxa de Estrela'}
+                <Button onClick={toggleSort} icon={sortByWinRate ? 'show_chart' : 'percent'}>
+                    {sortByWinRate ? 'Ordenado por Uso' : 'Ordenado por Vitória (top 20)'}
                 </Button>
             </div>
 
@@ -57,7 +57,7 @@ const MapList = () => {
                             </h3>
                         </div>
                         {filteredMaps.length === 1 && (
-                            <BrawlerList mapName={map.hash} sortByStarRate={sortByStarRate} />
+                            <BrawlerList mapName={map.hash} sortByWinRate={sortByWinRate} />
                         )}
                     </div>
                 ))}

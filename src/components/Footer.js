@@ -1,4 +1,3 @@
-// src/components/Footer.js
 import React from 'react';
 import '../styles/footer.css'; // Importa o arquivo de estilos para o footer
 
