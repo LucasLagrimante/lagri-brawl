@@ -56,7 +56,7 @@ const MapList = () => {
                                 <img src={map.gameMode.imageUrl} width={20} alt={map.name} />)
                             </h3>
                         </div>
-                        {filteredMaps.length <= 2 && (
+                        {filteredMaps.length <= 3 && (
                             <BrawlerList mapName={map.hash} sortByWinRate={sortByWinRate} />
                         )}
                     </div>
