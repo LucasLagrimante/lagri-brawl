@@ -13,7 +13,7 @@ export const getAllMaps = async () => {
 // Função para obter detalhes de um mapa específico, incluindo brawlers mais jogados
 export const getMapDetails = async (mapName) => {
     try {
-        const response = await axios.get(`https://backend-lagribrawl.onrender.com/api/brawlers?map_name=${mapName}`);
+        const response = await axios.get(`https://backend-lagribrawl.koyeb.app//api/brawlers?map_name=${mapName}`);
         return response.data;
     } catch (error) {
         console.error('Erro ao obter detalhes do mapa', error);
