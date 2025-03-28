@@ -1,5 +1,14 @@
 import axios from 'axios';
 
+export const startBackendServer = () => {
+    try {
+        axios.get('https://backend-lagribrawl.koyeb.app/start');
+        return true;
+    } catch (error) {
+        console.error('Erro ao iniciar o servidor do backend', error);
+    }
+};
+
 // Função para obter todos os mapas
 export const getAllMaps = async () => {
     try {

@@ -3,8 +3,11 @@ import React from 'react';
 import MapList from './components/MapList';
 import Footer from './components/Footer';
 import './styles/styles.css';
+import { startBackendServer } from '../src/services/brawlApi';
 
 function App() {
+  startBackendServer();
+
   const Header = () => {
     return (
       <header style={{ textAlign: 'center', margin: '20px 0' }}>
