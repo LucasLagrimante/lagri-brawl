@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const startBackendServer = () => {
     try {
-        axios.get('https://backend-lagribrawl.koyeb.app/start');
+        axios.get('https://backend-lagribrawl.koyeb.app//api/brawlers?map_name=Shooting-Star');
         return true;
     } catch (error) {
         console.error('Erro ao iniciar o servidor do backend', error);
