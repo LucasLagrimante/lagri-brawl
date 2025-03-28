@@ -3,7 +3,7 @@ import React from 'react';
 import MapList from './components/MapList';
 import Footer from './components/Footer';
 import './styles/styles.css';
-import { startBackendServer } from '../src/services/brawlApi';
+import { startBackendServer } from './services/brawlApi';
 
 function App() {
   startBackendServer();
