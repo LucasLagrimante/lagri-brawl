@@ -26,4 +26,5 @@ yarn-error.log*
 .history
 
 # IA
-.logsdist/
+.logs
+dist/
